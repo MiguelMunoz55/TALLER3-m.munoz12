@@ -21,14 +21,14 @@ class TestAnimales(unittest.TestCase):
     def test_alimentar_boa(self):
         b = BoaConstrictor(nombre="Boa de prueba", ratones_comidos=0)
         
-        for _ in range(9):
+        for _ in range(19):
             self.assertEqual(b.alimentar(), "Alimentado")
         
-        print(f"Ratones comidos antes del décimo intento: {b.ratones_comidos}")
+        print(f"Ratones comidos antes del veinteavo intento: {b.ratones_comidos}")
 
         try:
             b.alimentar()
-            self.fail("No se lanzó ValueError cuando la boa comió 10 ratones.")
+            self.fail("No se lanzó ValueError cuando la boa comió 20 ratones.")
         except ValueError as e:
             self.assertEqual(str(e), "Demasiados Ratones!")
 
@@ -49,13 +49,13 @@ class Guarderia:
 
 class TestGuarderia(unittest.TestCase):
     def test_alimentar_boa(self):
-        # Caso en que la boa puede alimentarse (menos de 10 ratones consumidos)
+        # Caso en que la boa puede alimentarse (menos de 20 ratones consumidos)
         b1 = BoaConstrictor(nombre="Boa 1", ratones_comidos=5)
         g = Guarderia([b1], [])
         self.assertEqual(g.alimentar_boa(b1), "Éxito")
         
-        # Caso donde la boa ya está llena (10 o más ratones consumidos)
-        b2 = BoaConstrictor(nombre="Boa 2", ratones_comidos=10)
+        # Caso donde la boa ya está llena (20 o más ratones consumidos)
+        b2 = BoaConstrictor(nombre="Boa 2", ratones_comidos=20)
         g.boas.append(b2)  
         self.assertEqual(g.alimentar_boa(b2), "La boa está llena")
         

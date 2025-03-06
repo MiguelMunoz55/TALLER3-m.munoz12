@@ -17,7 +17,7 @@ class BoaConstrictor(db.Model):
         if self.ratones_comidos is None:
             self.ratones_comidos = 0
 
-        if self.ratones_comidos >= 9:
+        if self.ratones_comidos >= 19:
             raise ValueError("Demasiados Ratones!")
         
         self.ratones_comidos += 1
